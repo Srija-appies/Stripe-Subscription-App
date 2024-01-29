@@ -26,7 +26,7 @@ export const checkAuth = async (
       process.env.JWT_SECRET as string
     )) as { email: string };
 
-    req.user = user.email;
+    req.user = user.email as string;
     next();
   } catch (error) {
     return res.status(403).json({

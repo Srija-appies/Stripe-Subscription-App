@@ -129,7 +129,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/me", checkAuth, async (req, res) => {
-  const user = await User.findOne({ email: req.user });
+  const user = await User.findOne({ email: req.user as string});
 
   return res.json({
     errors: [],
