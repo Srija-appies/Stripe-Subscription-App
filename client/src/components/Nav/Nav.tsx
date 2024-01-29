@@ -8,9 +8,16 @@ const LeftNavContainer = styled.div`
   margin-left: auto;
 `;
 
+const StyledLink = styled(Link)`
+  color: #ff0000;  // Set red text color for the link
+`;
+
+const StyledNavLink = styled(NavLink)`
+  color: #ff0000;  // Set red text color for the nav link
+`;
+
 const Nav = () => {
   const [state, setState] = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,17 +25,18 @@ const Nav = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+
   return (
     <Navbar>
       <NavItem>
-        <Link to="/" className="nav-link">
+        <StyledLink to="/" className="nav-link">
           Home
-        </Link>
+        </StyledLink>
       </NavItem>
       {state.data && (
         <LeftNavContainer>
           <NavItem>
-            <NavLink onClick={handleLogout}>Logout</NavLink>
+            <StyledNavLink onClick={handleLogout}>Logout</StyledNavLink>
           </NavItem>
         </LeftNavContainer>
       )}

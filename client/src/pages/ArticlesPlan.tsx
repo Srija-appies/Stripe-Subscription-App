@@ -7,18 +7,47 @@ import { isTemplateExpression } from "typescript";
 
 
 
-
-const StyledCard = styled.div`
-  background-color: #00000012;
+const StyledCard = styled(Card)`
+  background-color: #1a1a1a;  // Set dark background color
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
   transition: box-shadow 0.3s ease-in-out;
   margin: 0 10px;
 
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+`;
+
+const StyledCardImg = styled(Card.Img)`
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+`;
+
+const StyledCardBody = styled(Card.Body)`
+  color: #eee;  // Set text color to light gray
+`;
+
+const StyledCardText = styled(Card.Text)`
+  color: #888;  // Set text color to a slightly lighter gray
+`;
+
+const StyledCardTitle = styled(Card.Title)`
+  color: #fff;  // Set text color to white
+`;
+
+const StyledButton = styled(Button)`
+background-color: #ff0000;  // Set red background color
+border: none;  // Remove button border
+margin-top: auto;  // Align button to the bottom of the card
+display: block;  // Make the button a block element
+margin-left: auto;  // Center the button horizontally
+margin-right: auto;  // Center the button horizontally
+
+&:hover {
+  background-color: #cc0000;  // Darker red on hover
+}
 `;
 const ArticlesPlan = () => {
   const [prices, setPrices] = useState<any[]>([])
@@ -54,28 +83,27 @@ const ArticlesPlan = () => {
     <Container className="mt-5">
       <Row className="justify-content-center">
         {prices.map((item) => (
-          // Check if the nickname is not null before rendering the Card
+          // Check if the nickname is not null before rendering the StyledCard
           item.nickname !== null && (
             <Col key={item.id} xs={12} md={4} className="mb-4">
-              <Card className="text-center">
-                <Card.Img variant="top" src={standard} alt={item.title} />
-                <Card.Body>
-                  <Card.Text className="text-slate-500">
+              <StyledCard>
+                <StyledCardImg variant="top" src={standard} alt={item.title} />
+                <StyledCardBody>
+                  <StyledCardText className="text-slate-500">
                     Unlock a world of exclusive benefits with our subscription plans. Choose the one that suits you best!
-                  </Card.Text>
-                  <Card.Title className="text-center font-bold mt-3">
+                  </StyledCardText>
+                  <StyledCardTitle className="text-center font-bold mt-3">
                     ₹{item.unit_amount / 100} INR
-                  </Card.Title>
-                  <Card.Title className="text-center font-bold mt-3">{item.nickname}</Card.Title>
-                  <Button
+                  </StyledCardTitle>
+                  <StyledCardTitle className="text-center font-bold mt-3">{item.nickname}</StyledCardTitle>
+                  <StyledButton
                     variant="primary"
-                    className="mt-3"
                     onClick={() => createSession(item.id)}
                   >
                     Buy Now
-                  </Button>
-                </Card.Body>
-              </Card>
+                  </StyledButton>
+                </StyledCardBody>
+              </StyledCard>
             </Col>
           )
         ))}
