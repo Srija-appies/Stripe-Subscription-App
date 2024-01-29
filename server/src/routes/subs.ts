@@ -28,8 +28,8 @@ router.post("/session", checkAuth, async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/articles",
-      cancel_url: "http://localhost:3000/article-plans",
+      success_url: "https://subscription-app-p3g5.onrender.com//articles",
+      cancel_url: "https://subscription-app-p3g5.onrender.com//article-plans",
       customer: user.stripeCustomerId,
     },
     {

@@ -29,7 +29,7 @@ const UserProvider = ({ children }: any) => {
   }
 
   const fetchUser = async () => {
-    const { data: response } = await axios.get("https://stripe-subscription.onrender.com/auth/me");
+    const { data: response } = await axios.get("http://localhost:8080/auth/me");
 
     if (response.data && response.data.user) {
       setUser({

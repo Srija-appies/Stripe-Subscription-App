@@ -70,7 +70,7 @@ const ArticlesPlan = () => {
 
   const createSession = async (priceId: string) => {
     try {
-      const { data: response } = await axios.post("https://stripe-subscription.onrender.com/subs/session", {
+      const { data: response } = await axios.post("http://localhost:8080/subs/session", {
         priceId,
       });
       window.location.href = response.url;
