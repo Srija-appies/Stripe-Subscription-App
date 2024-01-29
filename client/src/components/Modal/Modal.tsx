@@ -32,7 +32,7 @@ const ModalComponent = ({ text, variant, isSignupFlow }: ModalProps) => {
     let response;
     if (isSignupFlow) {
       const { data: signUpData } = await axios.post(
-        "http://localhost:8080/auth/signup",
+        "https://stripe-subscription.onrender.com/auth/signup",
         {
           email,
           password,
@@ -41,7 +41,7 @@ const ModalComponent = ({ text, variant, isSignupFlow }: ModalProps) => {
       response = signUpData;
     } else {
       const { data: loginData } = await axios.post(
-        "http://localhost:8080/auth/login",
+        "https://stripe-subscription.onrender.com/auth/login",
         {
           email,
           password,

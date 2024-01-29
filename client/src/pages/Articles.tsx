@@ -81,7 +81,7 @@ const Articles = () => {
 
   const fetchArticles = async () => {
     const { data: response } = await axios.get(
-      "http://localhost:8080/articles"
+      "https://stripe-subscription.onrender.com/articles"
     );
     setArticles(response);
   };
