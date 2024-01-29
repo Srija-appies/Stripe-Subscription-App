@@ -59,7 +59,7 @@ const ArticlesPlan = () => {
 
   const fetchPrices = async () => {
     try {
-      const { data: response } = await axios.get("https://stripe-subscription.onrender.com/subs/prices")
+      const { data: response } = await axios.get("https://subscription-backend-5gc0.onrender.com/subs/prices")
       console.log(response)
       setPrices(response.data);
       setPlan("Standard");
@@ -70,7 +70,7 @@ const ArticlesPlan = () => {
 
   const createSession = async (priceId: string) => {
     try {
-      const { data: response } = await axios.post("http://localhost:8080/subs/session", {
+      const { data: response } = await axios.post("https://subscription-backend-5gc0.onrender.com/subs/session", {
         priceId,
       });
       window.location.href = response.url;
